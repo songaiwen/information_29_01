@@ -45,3 +45,5 @@ print("------------------------------------------")
 for index, item in enumerate(my_dict.items()):
     key, value = item
     print(index, key, value)
+
+num1 = 100
