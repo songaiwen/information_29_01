@@ -45,9 +45,3 @@ print("------------------------------------------")
 for index, item in enumerate(my_dict.items()):
     key, value = item
     print(index, key, value)
-
-<<<<<<< HEAD
-num1 = 100
-=======
-num1 = 10
->>>>>>> 8e797ec0b80a877df0916e9242f54f462a558323
