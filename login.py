@@ -20,3 +20,5 @@ print(items)
 print(list(items))
 
 num2 = 20
+
+num3 = 30
