@@ -18,3 +18,5 @@ print(list(values))
 items = my_dict.items()
 print(items)
 print(list(items))
+
+num2 = 20
