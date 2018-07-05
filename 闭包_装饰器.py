@@ -12,7 +12,6 @@ t()
 print(id(t))
 print(id(test))
 
-
 #2.闭包
 #定义函数test,解释器向下走,并没有执行,等待函数调用的时候才执行打印print
 def test(num1):
@@ -23,7 +22,6 @@ def test(num1):
         print("in test_in func %d" % (num1 + num2))
     #将内部函数test_in返回给外部函数
     return test_in
-
 #将指向函数代码空间的test对象赋值给t,那么执行t的时候两个函数都将被执行
 t = test(999)
 t(1)
@@ -62,11 +60,9 @@ def line(k, b):
         nonlocal k
         k += 1
         print("y = %d" % (k*x+b))
-
         #这种方式py2和py3都可以使用的方法
         # data[0] += 1
         # print("y = %d" % (data[0] * x + b))
-
     return inner
 line2 = line(1,2)
 
@@ -108,10 +104,8 @@ print(result)
 def yanzheng(func):
     print("验证1------------")
     func()
-
 def f1():
     print("in f1")
-
 #上层应用开发
 # f1()
 #但是我们本应该去调用f1函数的,却变成了调用yanzheng函数了.并不是很理想,所以
@@ -128,7 +122,6 @@ def yanzheng(func):
     2.只有一个参数就是被装饰的函数的引用
     使用装饰器的语法
     @装饰器函数
-
     """
     def inner():
         print("验证开始----------")
@@ -164,15 +157,12 @@ def gettime(func):
         func()
         end = time.time()
         print("函数的运行时间%f秒" % (end - begin))
-
     return inner
-
 @gettime
 def f1():
     print("in f1")
     for i in range(3):
         time.sleep(0.5)
-
 @gettime
 def f2():
     print("in f2")
@@ -212,7 +202,6 @@ def f4(number1,number2):
     for i in range(3):
         time.sleep(0.5)
     return 520
-
 print(f3(100))
 print(f4(200,300))
 
@@ -233,7 +222,6 @@ def get_run_time(flag):
             return ret
         return inner
     return gettime
-
 @get_run_time(1)
 def f5(number3):
     print("in f5 %d" % number3)
@@ -253,10 +241,49 @@ print(f5(9999))
 print(f6(789,567))
 
 
+#7.类装饰器
+class MyClass(object):
+    """装饰器类"""
+    def __init__(self, func):
+        #保存一个被装饰的函数的引用
+        self.__func = func
+
+    def __call__(self, *args, **kwargs):
+        print("正在开始验证")
+        #调用上面的函数
+        self.__func()
+        print("退出")
+@MyClass
+#这个类能实现装饰器功能就是类装饰器
+#这个等价于f7 = MyClass(f7),而此时上面不能接受参数,需要重写init方法
+#实例对象 = 类名()
+def f7():
+    print("正在剁手")
+#callable(对象)判断对象是否是可调用对象:形式  对象()
+#函数()   匿名函数对象()    方法()  类对象()  实现call方法的-->实例对象()
+f7()
 
 
+#8.多个装饰器装饰一个函数
+def makeBold(func):
+    """装饰器函数,功能是给函数外面加一个b标签加粗"""
+    def inner():
+        return "<b>" + func() + "<b>"
+    return inner
 
+def makeItalic(func):
+    """装饰器函数,功能是给函数外面加一个i标签倾斜"""
+    def inner():
+        return "<i>" + func() + "<b>"
+    return inner
+@makeItalic
+@makeBold
+#想要先实现哪个装饰器就将装饰器写在下面,最后一个实现的在上面
+def hello1():
+    return "hello world"
+print(hello1())
 
+#9.flask中的route的使用的唯一目的是为了添加路由
 
 
 
