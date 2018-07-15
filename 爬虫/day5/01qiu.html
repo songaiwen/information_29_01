@@ -1,0 +1,31 @@
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>糗事百科验证服务</title>
+            <script type="text/javascript" src=https://captcha.guard.qcloud.com/template/TCapIframeApi.js?appid=1251003092&clientype=2&lang=2052&asig=XIU1SzQ0mjZzxwbsfEth6jVJh7ud7lc2IIUYY7m9nFyD5Ybiv6tFbq56zr7JPXQzvo9zm0TNF5HI7VK5j3T10kou8CoZwRw1></script>
+            <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width">
+        </head>
+
+        <body>
+            <form action=/8hr/page/3/ id="myform" method="POST">
+                <input type="hidden" id="ticket" name="qticket" value="">
+                <div id="TCaptcha" style="width:310px;height:40px;" ></div>
+            </form>
+            <script type="text/javascript">
+                var capOption = {callback:cbfn, themeColor:"a11bbb"};
+                capInit(document.getElementById("TCaptcha"), capOption);
+                //回调函数：验证码页面关闭时回调
+                function cbfn(retJson) {
+                    if (retJson.ret == 0) {
+                        // 用户验证成功
+                        document.getElementById("ticket").value = retJson.ticket;
+                        document.getElementById("myform").submit();
+                    }
+                    else {
+                        //用户关闭验证码页面，没有验证
+                    }
+                }
+            </script>
+        </body>
+        </html>
