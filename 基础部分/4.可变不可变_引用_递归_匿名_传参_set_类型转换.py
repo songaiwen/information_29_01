@@ -1,43 +1,5 @@
-#1.函数定义的格式
 """
-def 函数名(参数列表...):
-    函数实现代码
-"""
-# demo
-def show_info():
-    print("社会我希姐,人狠话不多")
-# 调用函数
-show_info()
-
-# 2.函数文档说明
-def sum_num(num1, num2):
-    """
-    完成两数相加的功能
-    """
-    result = num1 + num2
-    print(result)
-# 查看函数的文档说明
-help(sum_num)
-
-# 3.完成两数相加的功能函数
-def sum_num(num1, num2):  # 定义的带有参数的函数，参数放到小括号里面
-    print("num1:", num1 , "num2:", num2)
-    result = num1 + num2
-    print(result)
-# 调用函数 =》 函数名(参数,xx)
-sum_num(1, 2)
-
-# 4.函数返回值
-def sum_num(num7, num8):
-    print(num7, num8)
-    result = num7 + num8
-    return result
-# 处理返回值,用变量保存
-result = sum_num(2,4)
-print(result)
-
-"""
-5.  # 可变类型: 在原有数据的基础上可以对数据进行修改(添加或者删除或者修改)，修改后内存地址不变
+1.  # 可变类型: 在原有数据的基础上可以对数据进行修改(添加或者删除或者修改)，修改后内存地址不变
     # 可变类型有： 字典，列表，集合
     # 不可变类型：不能再原有数据的基础上对数据进行修改
     # 不可变类型： 数字，字符串，元组
@@ -88,7 +50,7 @@ my_set.add(9)
 print(id(my_set))
 
 """
-6.函数的参数传递是引用的传递,在python里面所有的传递都是引用传递,也可以说是内存地址的传递
+2.函数的参数传递是引用的传递,在python里面所有的传递都是引用传递,也可以说是内存地址的传递
 """
 def show_info(info):
     #查看参数的内存地址
@@ -108,7 +70,7 @@ print(id(my_list),my_list)
 show_info(my_list)
 
 """
-7.函数的使用注意点
+3.函数的使用注意点
 """
 # 定义第一个函数
 def show_num():
@@ -125,7 +87,7 @@ show_num(20)
 show_num(50)
 
 """
-8.递归函数:在函数里面调用当前函数本身就是递归函数
+4.递归函数:在函数里面调用当前函数本身就是递归函数
 """
 import sys
 # 3! = 3 * 2 * 1
@@ -173,7 +135,7 @@ print(count)
 # print(result)
 
 """
-9.匿名函数:不适用def关键字定义的函数就是匿名函数, 可以完成类似比较简单的功能函数,简化普通函数的作用
+5.匿名函数:不适用def关键字定义的函数就是匿名函数, 可以完成类似比较简单的功能函数,简化普通函数的作用
 """
 #一个普通函数,计算两个数的和
 def sum(num1, num2):
@@ -183,11 +145,14 @@ result = sum(1, 2)
 print(result)
 
 # lambda表达式的格式
+#lambda [arg1 [,arg2,.....argn]]:expression
 # num1, num2 匿名函数的参数
 # num + num: 冒号后面写表达式结果
 func = lambda num1, num2: num1 + num2
 result = func(1,2)
 print(result)
+# Lambda函数能接收任何数量的参数但只能返回一个表达式的值
+# 匿名函数不能直接调用print，因为lambda需要一个表达式
 #扩展:匿名函数还可以结合if判断使用
 func = lambda x: True if x % 2 == 0 else False
 #执行函数
@@ -224,7 +189,7 @@ my_list.sort(key=lambda x:x["name"])
 print(my_list)
 
 """
-10.给程序传参
+6.给程序传参
 """
 import sys
 #获取给程序传入的参数
