@@ -587,6 +587,42 @@ if name == "dongge" and passwd == '123456':
 else:
     print("用户名或者密码错误")
 
+#扩展,if判断的补充
+# bool 类型， True， False
+if True:
+    print("哈哈")
+
+# 判断数字， 0表示条件不成立，非0表示条件成功
+if 100:
+    print("嘻嘻嘻嘻")
+
+# 判断数据的集合类型，列表， 元组，字符串，字典，集合，range, 还可以判断二进制数据里面有没有数据
+# 集合里面有数据表示条件成立，数据集合为空表示条件不成立
+if []:
+    print("哈哈")
+
+# tuple() 空的元组
+if tuple():
+    print("哈哈")
+
+if "hello":
+    print("嘻嘻嘻")
+
+if "":
+    print("嘻嘻嘻")
+
+if set():
+    print("条件成立")
+
+if range(5):
+    print("条件成立")
+
+if range(0):
+    print("条件不成立")
+
+# 判断 None类型， None表示条件不成立， not None 表示条件成立
+if not None:
+    print("条件成立")
 
 
 #11.猜拳游戏
