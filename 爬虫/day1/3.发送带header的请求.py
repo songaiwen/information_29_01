@@ -8,7 +8,7 @@ def get_baidu():
 
     print(response.content)
 
-    print(response.request.headers)
+    # print(response.request.headers)
     #{'User-Agent': 'python-requests/2.19.1', 'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate', 'Connection': 'keep-alive'}
     #打印出对应请求的请求头信息,这个头部信息明显告诉浏览器我们不是一个人在操作,
     # 而是一个python程序,这个是不合理的,所以我们需要带上头部信息,模拟浏览器来欺骗服务器,获取和浏览器一致的内容

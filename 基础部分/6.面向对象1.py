@@ -255,6 +255,42 @@ D.dogTest2()
 # 私有的属性、方法，不会被子类继承，也不能被访问
 # 一般情况下，私有的属性、方法都是不对外公布的，往往用来做内部的事情，起到安全的作用
 
+#扩展:继承中的私有属性和私有方法
+class Test(object):
+    def __init__(self):
+        self.__name = "老王"
+
+    def test(self):
+        print("----test------")
+
+    def __test_1(self):
+        print("-----test_1-----")
+
+    def test_1_public(self):
+        self.__test_1()
+
+
+class Test2(Test):
+    def printName(self):
+        print(self.__name)
+
+    def test2(self):
+        print("------test2------")
+        self.test()  # 如果在一个方法中,调用工一个对象的其他方法,那么使用的方式为:self.方法名()
+
+    def test3(self):
+        # self.__test_1()
+        self.test_1_public()
+
+
+t = Test2()
+# t.printName()
+# t.test()
+# t.test2()
+t.test3()
+#总结:在父类中的私有属性和私有方法,子类是不能直接继承使用的,如果想要使用,可以在父类中单独再写一个方法,
+#自己的私有属性或者是方法,然后在子类中去调用这个新方法就可以了
+
 """
 9.多继承
 """

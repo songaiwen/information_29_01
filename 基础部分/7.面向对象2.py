@@ -275,6 +275,27 @@ print(person.name, person.age)
 #类不能访问对象属性
 #总结:对象属性的操作使用对象来完成,类属性的操作使用类去完成
 
+#demo
+class Car(object):
+    #如果num=0没有放到一个方法中,那么这个变量就是这个类对象的属性,称之为类属性
+    #类属性的特点:所有的通过这个类创建出来的对象,都可以使用这个属性
+    #类属性
+    num = 0
+
+    def __init__(self):
+        #实例属性
+        self.name = "che"
+
+bwm = Car()
+#如果想修改类属性,那么只需要找到这个类对象,然后.num即可,类的名字Car就是这个类对象
+Car.num += 1
+audi = Car()
+Car.num += 1
+benz = Car()
+Car.num += 1
+print(Car.num)
+
+
 #扩展
 class Student(Person):
     def __init__(self):
@@ -403,11 +424,32 @@ class Person(object):
 
 # 创建对象
 # person = Person("张三", 20)
-person = Person()
+# person = Person()
 print(person.name, person.age)
 
 
+"""
+10.单例模式:确保某一个类只有一个实例,而且自行实例化并向整个系统提供这个实例
+这个类称为单例类,单例模式是一种对象创建型模式
 
+"""
+class Animal(object):
+    __instance = None
+    def __new__(cls, *args, **kwargs):
+        if cls.__instance is None:
+            cls.__instance = object.__new__(cls)
+
+        return cls.__instance
+
+    def __init__(self, name):
+        self.name = name
+
+dog = Animal("xiaogou")
+cat = Animal("xiaomao")
+print(id(dog))
+print(dog.name)
+print(id(cat))
+print(cat.name)
 
 
 
