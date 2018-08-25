@@ -24,14 +24,51 @@
 # num3 = 30
 # num4 = 40
 
-s = 'abc'
-print(type(s))
-#str编码变为bytes类型
-b = s.encode
-print(type(b))
+# s = 'abc'
+# print(type(s))
+# #str编码变为bytes类型
+# b = s.encode
+# print(type(b))
 
 # b = b'abc'
 # print(type(b))
 # #bytes类型解码成为str类型
 # s = b.decode()
 # print(type(s))
+
+
+def extendlist(val, list=[]):
+    list.append(val)
+    return list
+
+
+list1 = extendlist(10)
+
+list2 = extendlist(123, [])
+list3 = extendlist("a")
+print('list1=%s' %list1)
+print("list2=%s" % list2)
+print("list3 = %s" % list3)
+
+# def multipliers():
+#     return [lambda x : i * x for i in range(4)]
+# print [m(2), for m in multipliers()]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
